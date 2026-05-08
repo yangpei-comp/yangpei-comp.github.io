@@ -3,22 +3,24 @@
 // view module. Adding a new view means: (1) drop a module in `views/`, and
 // (2) register it in the `views` map below. Nothing else changes.
 // -----------------------------------------------------------------------------
-import { profile, publications, sections } from './data.js';
-import { renderHero }                      from './views/hero.js';
-import { renderPublicationListSimple }     from './views/pub-list-simple.js';
-import { renderPublicationListComplex }    from './views/pub-list-complex.js';
-import { renderClassifier }                from './views/classifier.js';
-import { renderFooter }                    from './views/footer.js';
+import { profile, publications, entries, sections } from './data.js';
+import { renderHero }                               from './views/hero.js';
+import { renderPublicationListSimple }              from './views/pub-list-simple.js';
+import { renderPublicationListComplex }             from './views/pub-list-complex.js';
+import { renderEntryList }                          from './views/entry-list.js';
+import { renderClassifier }                         from './views/classifier.js';
+import { renderFooter }                             from './views/footer.js';
 
 const views = {
   'hero':                       renderHero,
   'publication-list-simple':    renderPublicationListSimple,
   'publication-list-complex':   renderPublicationListComplex,
+  'entry-list':                 renderEntryList,
   'classifier':                 renderClassifier,
   'footer':                     renderFooter,
 };
 
-const ctx = { profile, publications };
+const ctx = { profile, publications, entries };
 
 function renderSections() {
   const root = document.getElementById('sections');

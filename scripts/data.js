@@ -7,6 +7,10 @@
 //     array. Each entry is an independent object. Fields are open - add new
 //     ones freely; views render what they recognize and ignore the rest.
 //
+//   - To add or remove a non-publication record (honor, scholarship, teaching
+//     stint, service role, ...): edit the `entries` array. Same open-field
+//     contract as publications.
+//
 //   - To change which views appear and in what order: edit the `sections`
 //     array. Each entry is `{ view, config }`. Multiple instances of the
 //     same view are fine (e.g. two simple lists for Publications and Talks).
@@ -318,6 +322,44 @@ export const publications = [
 ];
 
 // -----------------------------------------------------------------------------
+// Recognized entry fields (any may be omitted):
+//   text     bold main text         e.g. "Wuliangye Scholarship"
+//   comment  italic gray subtext    e.g. "UESTC (0.25%)"
+//   year     right-aligned tag      number or string, rendered like a venue
+//   sections [string]   - used by section filters in `sections` below
+//
+// Listed in forward chronological order (oldest first), like publications.
+// Any extra keys are preserved and available to custom views.
+// -----------------------------------------------------------------------------
+export const entries = [
+  // ============================== Honors & Scholarships ==============================
+  // 2020
+  { text: 'Wuliangye Scholarship',                       comment: 'UESTC (0.25%)',               year: 2020, sections: ['honors'] },
+  { text: 'Academic (Half-Tuition) Scholarship',         comment: 'Glasgow College UESTC (6%)',  year: 2020, sections: ['honors'] },
+  { text: 'Outstanding Student Scholarship (1st Class)', comment: 'UESTC (10%)',                 year: 2020, sections: ['honors'] },
+  { text: 'James Watt Scholarship of Innovation',        comment: 'Glasgow College UESTC (6%)',  year: 2020, sections: ['honors'] },
+  // 2021
+  { text: 'Academic (Half-Tuition) Scholarship',         comment: 'Glasgow College UESTC (6%)',  year: 2021, sections: ['honors'] },
+  { text: 'Outstanding Student Scholarship (1st Class)', comment: 'UESTC (10%)',                 year: 2021, sections: ['honors'] },
+  // 2022
+  { text: 'Academic (Half-Tuition) Scholarship',         comment: 'Glasgow College UESTC (6%)',  year: 2022, sections: ['honors'] },
+  { text: 'Outstanding Student Scholarship (1st Class)', comment: 'UESTC (10%)',                 year: 2022, sections: ['honors'] },
+  { text: 'Suzhou Industrial Zone Scholarship',          comment: 'UESTC (1%)',                  year: 2022, sections: ['honors'] },
+  { text: 'James Watt Scholarship of Innovation',        comment: 'Glasgow College UESTC (6%)',  year: 2022, sections: ['honors'] },
+  // 2023
+  { text: 'Sichuan Provincial Outstanding Graduate (四川省优秀本科毕业生)',                         year: 2023, sections: ['honors'] },
+  // 2025
+  { text: 'NeurIPS 2025 Top Reviewer',                                                            year: 2025, sections: ['honors'] },
+
+  // ============================== Teaching ==============================
+  { text: 'UESTC1005 Introductory Programming',           comment: 'Prof Ahmed Zoha',                            year: 2022, sections: ['teaching'] },
+  { text: 'UESTC3010 Team Design Project and Skills',     comment: 'Prof Wasim Ahmad',                           year: 2023, sections: ['teaching'] },
+  { text: 'CS1010 Programming Methodology',               comment: 'Prof Zhao Jin, 20h lecturing',               year: 2024, sections: ['teaching'] },
+  { text: 'GEI1000 Computational Thinking',               comment: 'Prof Leow Wee Kheng, 72h lecturing',         year: 2024, sections: ['teaching'] },
+  { text: 'CS4243 Computer Vision & Pattern Recognition', comment: 'Prof Amirhassan Monajemi, 40h lecturing',    year: 2025, sections: ['teaching'] },
+];
+
+// -----------------------------------------------------------------------------
 // PAGE COMPOSITION
 // The page is rendered by walking this list. Reorder entries to reorder
 // the page; add multiple instances of the same view if useful.
@@ -341,6 +383,24 @@ export const sections = [
       title: 'Talks',
       filter: (p) => p.sections?.includes('talks'),
       density: 'compact',
+    },
+  },
+
+  {
+    view: 'entry-list',
+    config: {
+      id: 'teaching',
+      title: 'Teaching',
+      filter: (e) => e.sections?.includes('teaching'),
+    },
+  },
+
+  {
+    view: 'entry-list',
+    config: {
+      id: 'honors',
+      title: 'Honors & Scholarships',
+      filter: (e) => e.sections?.includes('honors'),
     },
   },
 

@@ -69,6 +69,8 @@ export function renderHero(container, config, ctx) {
         <nav class="topbar__nav" aria-label="Primary">
           <a href="#publications">Publications</a>
           <a href="#talks">Talks</a>
+          <a href="#teaching">Teaching</a>
+          <a href="#honors">Honors</a>
         </nav>
         <div class="topbar__actions">
           ${(profile.links ?? [])
