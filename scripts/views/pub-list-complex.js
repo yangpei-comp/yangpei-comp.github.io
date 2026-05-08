@@ -25,12 +25,12 @@ export function renderPublicationListComplex(container, config, ctx) {
               </figure>
             ` : ''}
             <div class="pub-body">
-              <header class="pub__head">
+              <div class="pub__col">
                 <h3 class="pub__title pub__title--xl">${escapeHtml(p.title)}</h3>
-                ${renderVenue(p.venue)}
-              </header>
-              ${renderAuthors(p.authors)}
-              ${body ? `<div class="pub__main">${abstract}${kws}${links}</div>` : ''}
+                ${renderAuthors(p.authors)}
+                ${body ? `<div class="pub__main">${abstract}${kws}${links}</div>` : ''}
+              </div>
+              ${renderVenue(p.venue)}
             </div>
           </article>
         `;}).join('')}

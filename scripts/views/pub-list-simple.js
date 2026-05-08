@@ -22,11 +22,13 @@ export function renderPublicationListSimple(container, config, ctx) {
           <li class="pub pub--simple" data-reveal>
             <article id="${escapeHtml(p.id ?? '')}">
               <header class="pub__head">
-                <h3 class="pub__title">${escapeHtml(p.title)}</h3>
+                <div class="pub__col">
+                  <h3 class="pub__title">${escapeHtml(p.title)}</h3>
+                  ${renderAuthors(p.authors)}
+                  ${body ? `<div class="pub__main">${tldr}${kws}${links}</div>` : ''}
+                </div>
                 ${renderVenue(p.venue)}
               </header>
-              ${renderAuthors(p.authors)}
-              ${body ? `<div class="pub__main">${tldr}${kws}${links}</div>` : ''}
             </article>
           </li>
         `;}).join('')}

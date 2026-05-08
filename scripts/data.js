@@ -54,10 +54,11 @@ export const profile = {
 //   links     [{ label, href }]
 //   sections  [string]   - used by section filters in `sections` below
 //
+// Listed in forward chronological order (oldest first).
 // Any extra keys are preserved and available to custom views.
 // -----------------------------------------------------------------------------
 export const publications = [
-  // ============================== Diffusion Safety & Security ==============================
+  // ============================== 2024 ==============================
   {
     id: 'ringid',
     title: 'RingID: Rethinking Tree-Ring Watermarking for Enhanced Multi-Key Identification',
@@ -97,6 +98,23 @@ export const publications = [
     ],
     sections: ['publications'],
   },
+
+  // ============================== 2025 ==============================
+  {
+    id: 'rethinking-defense',
+    title: 'Rethinking Defense for Computer-Use Agents: Context Deception Attacks are Simple to Defend',
+    authors: [
+      { name: 'Pei Yang',         self: true, coFirst: true },
+      { name: 'Hai Ci',                       coFirst: true },
+      { name: 'Mike Zheng Shou'                             },
+    ],
+    keywords: ['GUI Agent', 'Safety'],
+    venue: '2025',
+    links: [
+      { label: 'Paper', href: 'https://arxiv.org/abs/2503.09241' },
+    ],
+    sections: ['publications'],
+  },
   {
     id: 'idprotector',
     title: 'IDProtector: An Adversarial Noise Encoder to Protect Against ID-Preserving Image Generation',
@@ -107,6 +125,7 @@ export const publications = [
       { name: 'Mike Zheng Shou'                             },
     ],
     tldr: 'A model that imperceptibly perturbs an image within 1 second, robustly protecting the portrait from being used for identity-preserving re-generation.',
+    keywords: ['ID-Preserving Generation', 'Diffusion', 'Adversarial Attacks', 'ViT Pretraining'],
     venue: 'CVPR 2025',
     links: [
       { label: 'Paper', href: 'https://openaccess.thecvf.com/content/CVPR2025/papers/Song_IDProtector_An_Adversarial_Noise_Encoder_to_Protect_Against_ID-Preserving_Image_CVPR_2025_paper.pdf' },
@@ -125,69 +144,13 @@ export const publications = [
       { name: 'Mike Zheng Shou'              },
     ],
     tldr: 'Add various watermarks during VAE decoding by inserting a LoRA into the VAE.',
+    keywords: ['Watermarking', 'Diffusion'],
     venue: 'ICML 2025',
     links: [
       { label: 'Paper', href: 'https://arxiv.org/abs/2406.08337' },
     ],
     sections: ['publications'],
   },
-  {
-    id: 'diffseg30k',
-    title: 'DiffSeg30k: A Multi-Turn Diffusion Editing Benchmark for Localized AIGC Detection',
-    authors: [
-      { name: 'Hai Ci',                       coFirst: true },
-      { name: 'Ziheng Peng',                  coFirst: true },
-      { name: 'Pei Yang',         self: true                },
-      { name: 'Yingxin Xuan'                                },
-      { name: 'Mike Zheng Shou'                             },
-    ],
-    tldr: "A segmentation formulation greatly facilitates AIGC detector's generalization capability.",
-    keywords: ['AIGC Detection', 'Diffusion', 'Forensics'],
-    venue: '2026',
-    links: [
-      { label: 'Paper', href: 'https://arxiv.org/abs/2511.19111' },
-    ],
-    sections: ['publications'],
-  },
-
-  // ============================== GUI Agents ==============================
-  {
-    id: 'macosworld',
-    title: 'macOSWorld: A Multilingual Interactive Benchmark for GUI Agents',
-    authors: [
-      { name: 'Pei Yang',         self: true, coFirst: true },
-      { name: 'Hai Ci',                       coFirst: true },
-      { name: 'Mike Zheng Shou'                             },
-    ],
-    tldr: 'Facilitates realistic computer-use agent benchmarking and rewarding, already deployed by Tencent Singapore.',
-    keywords: ['Computer-Use Agent', 'AWS EC2', 'VMware', 'Safety'],
-    venue: 'NeurIPS 2025',
-    figure: 'assets/fig-02.svg',
-    links: [
-      { label: 'Paper',        href: 'https://arxiv.org/abs/2506.04135' },
-      { label: 'Presentation', href: 'https://neurips.cc/virtual/2025/loc/san-diego/poster/117427' },
-      { label: 'Project Page', href: 'https://macos-world.github.io/' },
-      { label: 'Code',         href: 'https://github.com/showlab/macosworld' },
-    ],
-    sections: ['publications'],
-  },
-  {
-    id: 'rethinking-defense',
-    title: 'Rethinking Defense for Computer-Use Agents',
-    authors: [
-      { name: 'Pei Yang',         self: true, coFirst: true },
-      { name: 'Hai Ci',                       coFirst: true },
-      { name: 'Mike Zheng Shou'                             },
-    ],
-    keywords: ['GUI Agent', 'Safety'],
-    venue: '2025',
-    links: [
-      { label: 'Paper', href: 'https://arxiv.org/abs/2503.09241' },
-    ],
-    sections: ['publications'],
-  },
-
-  // ============================== VideoGen and Post-Training ==============================
   {
     id: 'x-humanoid',
     title: 'X-Humanoid: Robotize Human Videos to Generate Humanoid Videos at Scale',
@@ -219,10 +182,52 @@ export const publications = [
       { name: 'Yiren Song'                                  },
       { name: 'Mike Zheng Shou'                             },
     ],
+    tldr: 'Human arm video -> robot arm video; trained without paired data.',
+    keywords: ['Video Post-Training', 'Robotics'],
     venue: '2025',
     links: [
       { label: 'Paper',        href: 'https://www.arxiv.org/abs/2512.09406' },
       { label: 'Project Page', href: 'https://showlab.github.io/H2R-Grounder/' },
+    ],
+    sections: ['publications'],
+  },
+  {
+    id: 'macosworld',
+    title: 'macOSWorld: A Multilingual Interactive Benchmark for GUI Agents',
+    authors: [
+      { name: 'Pei Yang',         self: true, coFirst: true },
+      { name: 'Hai Ci',                       coFirst: true },
+      { name: 'Mike Zheng Shou'                             },
+    ],
+    tldr: 'Facilitates realistic computer-use agent benchmarking and rewarding, already deployed by Tencent Singapore.',
+    keywords: ['Computer-Use Agent', 'AWS EC2', 'VMware', 'Safety'],
+    venue: 'NeurIPS 2025',
+    figure: 'assets/fig-02.svg',
+    links: [
+      { label: 'Paper',        href: 'https://arxiv.org/abs/2506.04135' },
+      { label: 'Presentation', href: 'https://neurips.cc/virtual/2025/loc/san-diego/poster/117427' },
+      { label: 'Project Page', href: 'https://macos-world.github.io/' },
+      { label: 'Code',         href: 'https://github.com/showlab/macosworld' },
+    ],
+    sections: ['publications'],
+  },
+
+  // ============================== 2026 ==============================
+  {
+    id: 'diffseg30k',
+    title: 'DiffSeg30k: A Multi-Turn Diffusion Editing Benchmark for Localized AIGC Detection',
+    authors: [
+      { name: 'Hai Ci',                       coFirst: true },
+      { name: 'Ziheng Peng',                  coFirst: true },
+      { name: 'Pei Yang',         self: true                },
+      { name: 'Yingxin Xuan'                                },
+      { name: 'Mike Zheng Shou'                             },
+    ],
+    tldr: "A segmentation formulation greatly facilitates AIGC detector's generalization capability.",
+    keywords: ['AIGC Detection', 'Diffusion', 'Forensics'],
+    venue: '2026',
+    links: [
+      { label: 'Paper', href: 'https://arxiv.org/abs/2511.19111' },
     ],
     sections: ['publications'],
   },
@@ -278,24 +283,6 @@ export const publications = [
 
   // ============================== Talks ==============================
   {
-    id: 'talk-tencent-macosworld',
-    title: 'macOSWorld and Rewarding Environment for Computer-Use Agents',
-    authors: [{ name: 'Pei Yang', self: true }],
-    venue: 'Tencent Singapore, Sep 2024',
-    links: [],
-    sections: ['talks'],
-  },
-  {
-    id: 'talk-watermarking',
-    title: 'Digital Watermarking in the Diffusion Era',
-    authors: [{ name: 'Pei Yang', self: true }],
-    venue: 'NUS School of Computing Media Lunch, Sep 2024',
-    links: [
-      { label: 'Slides', href: 'https://drive.google.com/file/d/1qq7vkG7wjLkEWTUKrDtYCbJjs0hGqrND/view?usp=drive_link' },
-    ],
-    sections: ['talks'],
-  },
-  {
     id: 'tutorial-video-diffusion',
     title: 'Tutorial: Video Diffusion Models',
     authors: [
@@ -303,11 +290,29 @@ export const publications = [
       { name: 'Pei Yang',         self: true },
       { name: 'Jay Wu'                       },
     ],
-    venue: 'Tutorial, Nov 2023',
+    venue: 'Tutorial\nNov 2023',
     links: [
       { label: 'Video',  href: 'https://www.youtube.com/watch?v=0K56LA821ys' },
       { label: 'Slides', href: 'https://www.dropbox.com/scl/fi/u7jgodz3tz01bzd5uftog/Video-Diffusion-Tutorial-Prof-Mike-Shou-NUS-2023-Dec-15.pdf?rlkey=de6axl9dnjhz1ub0wmpwmpq4f&e=1&dl=0' },
     ],
+    sections: ['talks'],
+  },
+  {
+    id: 'talk-watermarking',
+    title: 'Digital Watermarking in the Diffusion Era',
+    authors: [{ name: 'Pei Yang', self: true }],
+    venue: 'NUS School of Computing Media Lunch Talk\nSep 2024',
+    links: [
+      { label: 'Slides', href: 'https://drive.google.com/file/d/1qq7vkG7wjLkEWTUKrDtYCbJjs0hGqrND/view?usp=drive_link' },
+    ],
+    sections: ['talks'],
+  },
+  {
+    id: 'talk-tencent-macosworld',
+    title: 'macOSWorld and Rewarding Environment for Computer-Use Agents',
+    authors: [{ name: 'Pei Yang', self: true }],
+    venue: 'Tencent Singapore\nSep 2024',
+    links: [],
     sections: ['talks'],
   },
 ];
@@ -333,7 +338,7 @@ export const sections = [
     view: 'publication-list-simple',
     config: {
       id: 'talks',
-      title: 'Invited Talks',
+      title: 'Talks',
       filter: (p) => p.sections?.includes('talks'),
       density: 'compact',
     },

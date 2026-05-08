@@ -12,8 +12,6 @@ export function renderFooter(container, config, ctx) {
   const dateString = date.toLocaleDateString('en-US', {
     year: 'numeric', month: 'long', day: 'numeric',
   });
-  const monthYear = date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
-
   container.innerHTML = `
     <div class="container">
       <div class="foot">
@@ -33,7 +31,6 @@ export function renderFooter(container, config, ctx) {
       <div class="foot__rule" aria-hidden="true"></div>
       <div class="foot__bottom">
         <span class="foot__copy">© ${date.getFullYear()} ${escapeHtml(ctx.profile.name)}.</span>
-        <span class="foot__sig">Made with intent in ${escapeHtml(monthYear)}.</span>
       </div>
     </div>
   `;
