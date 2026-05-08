@@ -1,0 +1,341 @@
+/* =============================================================================
+   1. DESIGN TOKENS
+   ============================================================================= */
+:root {
+  /* color - near-white paper, warm-tinted neutrals, single warm accent */
+  --paper:        #FAFAF7;
+  --paper-2:      #F2F0EA;
+  --surface:      #FFFFFF;
+  --surface-2:    #F6F4EE;
+
+  --ink:          #0F0E0C;
+  --ink-2:        #2A2823;
+  --ink-3:        #4A4640;
+  --mute:         #7E7A72;
+  --mute-2:       #ADA89E;
+
+  --rule:         #E5E1D8;
+  --rule-2:       #D4CFC2;
+
+  --warm:         #B14A1A;       /* used sparingly: co-first asterisk + small accents */
+
+  /* typography - one family for everything */
+  --sans: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* layout */
+  --max-w:       1200px;
+  --content-w:   720px;
+  --gutter:      clamp(1.25rem, 3vw, 3rem);
+  --topbar-h:    64px;
+  --section-y:   clamp(4.5rem, 9vw, 8rem);
+
+  /* motion */
+  --ease:       cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-snap:  cubic-bezier(0.4, 0, 0.2, 1);
+  --t-fast:     200ms;
+  --t-med:      420ms;
+  --t-slow:     720ms;
+
+  /* shadow - very soft, neutral */
+  --shadow-sm:  0 1px 2px rgba(20, 18, 12, 0.04), 0 4px 12px -4px rgba(20, 18, 12, 0.06);
+  --shadow-md:  0 2px 6px rgba(20, 18, 12, 0.05), 0 16px 32px -12px rgba(20, 18, 12, 0.10);
+  --shadow-lg:  0 4px 12px rgba(20, 18, 12, 0.06), 0 32px 56px -20px rgba(20, 18, 12, 0.14);
+}
+
+/* =============================================================================
+   2. RESET & BASE
+   ============================================================================= */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: var(--topbar-h);
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16.5px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'ss01', 'ss03', 'cv11';
+}
+
+img, svg { max-width: 100%; height: auto; display: block; }
+button     { font: inherit; cursor: pointer; border: 0; background: transparent; color: inherit; padding: 0; }
+ul, ol     { list-style: none; padding: 0; margin: 0; }
+a          { color: inherit; text-decoration: none; }
+
+::selection { background: var(--ink); color: var(--paper); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =============================================================================
+   3. ACCESSIBILITY
+   ============================================================================= */
+.skip-link {
+  position: fixed;
+  top: 12px; left: 12px;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.6rem 1rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  border-radius: 4px;
+  transform: translateY(-200%);
+  transition: transform var(--t-fast) var(--ease-snap);
+  z-index: 400;
+}
+.skip-link:focus { transform: translateY(0); }
+
+#top { display: block; height: 0; }
+
+#main:focus-visible { outline: none; }
+
+.noscript {
+  position: fixed; inset: 0;
+  background: var(--paper);
+  display: grid; place-items: center;
+  padding: 2rem;
+  font-size: 1.0625rem;
+  text-align: center;
+  z-index: 500;
+}
+
+/* =============================================================================
+   4. LAYOUT
+   ============================================================================= */
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+}
+
+#main { display: block; }
+
+.section {
+  position: relative;
+  padding-block: calc(var(--section-y) * 0.55) calc(var(--section-y) * 0.65);
+}
+
+.section--hero {
+  padding-block: clamp(2.5rem, 6vw, 5rem) calc(var(--section-y) * 0.4);
+}
+
+.section--footer {
+  padding-block: calc(var(--section-y) * 0.55) calc(var(--section-y) * 0.35);
+}
+
+/* =============================================================================
+   5. TOPBAR
+   ============================================================================= */
+.topbar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: var(--topbar-h);
+  z-index: 100;
+  background: rgba(250, 250, 247, 0.78);
+  backdrop-filter: saturate(140%) blur(14px);
+  -webkit-backdrop-filter: saturate(140%) blur(14px);
+  border-bottom: 1px solid transparent;
+  transform: translateY(-110%);
+  transition:
+    transform var(--t-med) var(--ease),
+    border-color var(--t-med) var(--ease),
+    background var(--t-med) var(--ease);
+}
+
+.topbar[data-state="visible"] {
+  transform: translateY(0);
+  border-bottom-color: var(--rule);
+  background: rgba(250, 250, 247, 0.86);
+}
+
+.topbar__progress {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 1px;
+  background: var(--ink);
+  transform-origin: left center;
+  transform: scaleX(0);
+  opacity: 0.85;
+  transition: transform 80ms linear;
+}
+
+.topbar__inner {
+  height: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2rem);
+}
+
+.topbar__identity {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+}
+
+.topbar__photo {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--rule);
+  flex: none;
+}
+.topbar__photo img { width: 100%; height: 100%; object-fit: cover; }
+
+.topbar__name {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+}
+
+.topbar__nav {
+  display: flex;
+  gap: clamp(0.75rem, 2vw, 1.75rem);
+  justify-self: center;
+}
+
+.topbar__nav a {
+  font-size: 0.875rem;
+  font-weight: 450;
+  color: var(--ink-3);
+  letter-spacing: 0.005em;
+  padding: 0.4rem 0.1rem;
+  position: relative;
+  transition: color var(--t-fast) var(--ease);
+}
+
+.topbar__nav a::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 -2px 0;
+  height: 1px;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--t-med) var(--ease);
+}
+
+.topbar__nav a:hover { color: var(--ink); }
+.topbar__nav a:hover::after,
+.topbar__nav a.is-active::after { transform: scaleX(1); }
+
+.topbar__actions { justify-self: end; }
+
+@media (max-width: 760px) {
+  .topbar__nav { display: none; }
+  .topbar__inner { grid-template-columns: auto 1fr auto; }
+}
+
+/* =============================================================================
+   6. BUTTONS / LINKS
+   ============================================================================= */
+.btn {
+  --bg: var(--ink);
+  --fg: var(--paper);
+  --bd: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.15rem 0.75rem 1.3rem;
+  background: var(--bg);
+  color: var(--fg);
+  border: 1px solid var(--bd);
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  line-height: 1;
+  text-decoration: none;
+  transition:
+    background var(--t-fast) var(--ease-snap),
+    color      var(--t-fast) var(--ease-snap),
+    border-color var(--t-fast) var(--ease-snap),
+    transform  var(--t-fast) var(--ease-snap);
+}
+
+.btn--ghost   { --bg: transparent;  --fg: var(--ink);   --bd: var(--rule-2); }
+.btn--primary { --bg: var(--ink);   --fg: var(--paper); --bd: var(--ink);   }
+
+.btn--small {
+  padding: 0.5rem 0.85rem 0.5rem 0.95rem;
+  font-size: 0.8125rem;
+}
+
+.btn:hover                  { transform: translateY(-1px); }
+.btn--primary:hover         { background: var(--ink-2); }
+.btn--ghost:hover           { background: var(--surface); --bd: var(--ink-3); }
+
+.btn__arrow {
+  display: inline-block;
+  transition: transform var(--t-fast) var(--ease-snap);
+}
+.btn:hover .btn__arrow { transform: translateX(2px); }
+
+/* small inline link button (.link-btn) is defined in views.css */
+
+/* =============================================================================
+   7. SECTION HEADERS
+   ============================================================================= */
+.section__head {
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  max-width: 64ch;
+}
+
+.section__title {
+  font-weight: 500;
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin: 0;
+}
+
+.section__lede {
+  font-size: 1.0625rem;
+  font-weight: 400;
+  color: var(--ink-3);
+  max-width: 56ch;
+  margin: 1rem 0 0;
+  line-height: 1.55;
+  letter-spacing: -0.005em;
+}
+
+/* =============================================================================
+   8. REVEAL ANIMATIONS - single fade as content scrolls into view, no stagger
+   ============================================================================= */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity var(--t-med) var(--ease),
+    transform var(--t-med) var(--ease);
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; }
+}
