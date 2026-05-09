@@ -1,6 +1,3 @@
-# Local-only sources (CVs, drafts, photo originals, etc.) - never publish.
-private/
-
 # OS noise
 .DS_Store
 Thumbs.db
