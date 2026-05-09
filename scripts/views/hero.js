@@ -70,7 +70,7 @@ export function renderHero(container, config, ctx) {
           <a href="#publications">Publications</a>
           <a href="#talks">Talks</a>
           <a href="#teaching">Teaching</a>
-          <a href="#honors">Honors</a>
+          <a href="#honours">Honours</a>
         </nav>
         <div class="topbar__actions">
           ${(profile.links ?? [])

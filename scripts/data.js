@@ -7,7 +7,7 @@
 //     array. Each entry is an independent object. Fields are open - add new
 //     ones freely; views render what they recognize and ignore the rest.
 //
-//   - To add or remove a non-publication record (honor, scholarship, teaching
+//   - To add or remove a non-publication record (honour, scholarship, teaching
 //     stint, service role, ...): edit the `entries` array. Same open-field
 //     contract as publications.
 //
@@ -105,6 +105,24 @@ export const publications = [
 
   // ============================== 2025 ==============================
   {
+    id: 'idprotector',
+    title: 'IDProtector: An Adversarial Noise Encoder to Protect Against ID-Preserving Image Generation',
+    authors: [
+      { name: 'Yiren Song',                   coFirst: true },
+      { name: 'Pei Yang',         self: true, coFirst: true },
+      { name: 'Hai Ci'                                      },
+      { name: 'Mike Zheng Shou'                             },
+    ],
+    tldr: 'A model that imperceptibly perturbs an image within 1 second, robustly protecting the portrait from being used for identity-preserving re-generation.',
+    keywords: ['ID-Preserving Generation', 'Diffusion', 'Adversarial Attacks', 'ViT Pretraining'],
+    venue: 'CVPR 2025',
+    links: [
+      { label: 'Paper', href: 'https://openaccess.thecvf.com/content/CVPR2025/papers/Song_IDProtector_An_Adversarial_Noise_Encoder_to_Protect_Against_ID-Preserving_Image_CVPR_2025_paper.pdf' },
+      { label: 'Code',  href: 'https://github.com/showlab/IDProtector' },
+    ],
+    sections: ['publications'],
+  },
+  {
     id: 'rethinking-defense',
     title: 'Rethinking Defense for Computer-Use Agents: Context Deception Attacks are Simple to Defend',
     authors: [
@@ -120,20 +138,22 @@ export const publications = [
     sections: ['publications'],
   },
   {
-    id: 'idprotector',
-    title: 'IDProtector: An Adversarial Noise Encoder to Protect Against ID-Preserving Image Generation',
+    id: 'macosworld',
+    title: 'macOSWorld: A Multilingual Interactive Benchmark for GUI Agents',
     authors: [
-      { name: 'Yiren Song',                   coFirst: true },
       { name: 'Pei Yang',         self: true, coFirst: true },
-      { name: 'Hai Ci'                                      },
+      { name: 'Hai Ci',                       coFirst: true },
       { name: 'Mike Zheng Shou'                             },
     ],
-    tldr: 'A model that imperceptibly perturbs an image within 1 second, robustly protecting the portrait from being used for identity-preserving re-generation.',
-    keywords: ['ID-Preserving Generation', 'Diffusion', 'Adversarial Attacks', 'ViT Pretraining'],
-    venue: 'CVPR 2025',
+    tldr: 'Facilitates realistic computer-use agent benchmarking and rewarding, already deployed by Tencent Singapore.',
+    keywords: ['Computer-Use Agent', 'AWS EC2', 'VMware', 'AppleScript', 'Safety'],
+    venue: 'NeurIPS 2025',
+    figure: 'assets/fig-02.svg',
     links: [
-      { label: 'Paper', href: 'https://openaccess.thecvf.com/content/CVPR2025/papers/Song_IDProtector_An_Adversarial_Noise_Encoder_to_Protect_Against_ID-Preserving_Image_CVPR_2025_paper.pdf' },
-      { label: 'Code',  href: 'https://github.com/showlab/IDProtector' },
+      { label: 'Paper',        href: 'https://arxiv.org/abs/2506.04135' },
+      { label: 'Presentation', href: 'https://neurips.cc/virtual/2025/loc/san-diego/poster/117427' },
+      { label: 'Project Page', href: 'https://macos-world.github.io/' },
+      { label: 'Code',         href: 'https://github.com/showlab/macosworld' },
     ],
     sections: ['publications'],
   },
@@ -186,32 +206,12 @@ export const publications = [
       { name: 'Yiren Song'                                  },
       { name: 'Mike Zheng Shou'                             },
     ],
-    tldr: 'Human arm video -> robot arm video; trained without paired data.',
+    tldr: 'Human arm video → robot arm video; trained without paired data.',
     keywords: ['Video Post-Training', 'Robotics'],
     venue: '2025',
     links: [
       { label: 'Paper',        href: 'https://www.arxiv.org/abs/2512.09406' },
       { label: 'Project Page', href: 'https://showlab.github.io/H2R-Grounder/' },
-    ],
-    sections: ['publications'],
-  },
-  {
-    id: 'macosworld',
-    title: 'macOSWorld: A Multilingual Interactive Benchmark for GUI Agents',
-    authors: [
-      { name: 'Pei Yang',         self: true, coFirst: true },
-      { name: 'Hai Ci',                       coFirst: true },
-      { name: 'Mike Zheng Shou'                             },
-    ],
-    tldr: 'Facilitates realistic computer-use agent benchmarking and rewarding, already deployed by Tencent Singapore.',
-    keywords: ['Computer-Use Agent', 'AWS EC2', 'VMware', 'Safety'],
-    venue: 'NeurIPS 2025',
-    figure: 'assets/fig-02.svg',
-    links: [
-      { label: 'Paper',        href: 'https://arxiv.org/abs/2506.04135' },
-      { label: 'Presentation', href: 'https://neurips.cc/virtual/2025/loc/san-diego/poster/117427' },
-      { label: 'Project Page', href: 'https://macos-world.github.io/' },
-      { label: 'Code',         href: 'https://github.com/showlab/macosworld' },
     ],
     sections: ['publications'],
   },
@@ -227,7 +227,7 @@ export const publications = [
       { name: 'Yingxin Xuan'                                },
       { name: 'Mike Zheng Shou'                             },
     ],
-    tldr: "A segmentation formulation greatly facilitates AIGC detector's generalization capability.",
+    tldr: "A segmentation formulation greatly facilitates AIGC detector's generalisation capability.",
     keywords: ['AIGC Detection', 'Diffusion', 'Forensics'],
     venue: '2026',
     links: [
@@ -236,8 +236,8 @@ export const publications = [
     sections: ['publications'],
   },
   {
-    id: 'omnihumannoid',
-    title: 'OmniHumannoid: Decoupled Human-to-Robot Video Generation with Paired-Free Adaptation',
+    id: 'omnihumanoid',
+    title: 'OmniHumanoid: Decoupled Human-to-Robot Video Generation with Paired-Free Adaptation',
     authors: [
       { name: 'Yiren Song',                   coFirst: true },
       { name: 'Xiyao Deng',                   coFirst: true },
@@ -245,6 +245,7 @@ export const publications = [
       { name: 'Yihan Wang'                                  },
       { name: 'Mike Zheng Shou'                             },
     ],
+    keywords: ['Video Post-Training', 'Robotics'],
     venue: '2026',
     links: [],
     sections: ['publications'],
@@ -263,6 +264,7 @@ export const publications = [
     keywords: ['Video Post-Training', 'Robotics', 'Unreal Engine'],
     venue: '2026',
     links: [
+      { label: 'Paper',        href: 'https://arxiv.org/abs/2604.04402' },
       { label: 'Project Page', href: 'https://showlab.github.io/UENR-600K/' },
     ],
     sections: ['publications'],
@@ -315,7 +317,7 @@ export const publications = [
     id: 'talk-tencent-macosworld',
     title: 'macOSWorld and Rewarding Environment for Computer-Use Agents',
     authors: [{ name: 'Pei Yang', self: true }],
-    venue: 'Tencent Singapore\nSep 2024',
+    venue: 'Tencent Singapore\nApr 2026',
     links: [],
     sections: ['talks'],
   },
@@ -332,24 +334,24 @@ export const publications = [
 // Any extra keys are preserved and available to custom views.
 // -----------------------------------------------------------------------------
 export const entries = [
-  // ============================== Honors & Scholarships ==============================
+  // ============================== Honours & Scholarships ==============================
   // 2020
-  { text: 'Wuliangye Scholarship',                       comment: 'UESTC (0.25%)',               year: 2020, sections: ['honors'] },
-  { text: 'Academic (Half-Tuition) Scholarship',         comment: 'Glasgow College UESTC (6%)',  year: 2020, sections: ['honors'] },
-  { text: 'Outstanding Student Scholarship (1st Class)', comment: 'UESTC (10%)',                 year: 2020, sections: ['honors'] },
-  { text: 'James Watt Scholarship of Innovation',        comment: 'Glasgow College UESTC (6%)',  year: 2020, sections: ['honors'] },
+  { text: 'Wuliangye Scholarship',                       comment: 'UESTC (0.25%)',               year: 2020, sections: ['honours'] },
+  { text: 'Academic (Half-Tuition) Scholarship',         comment: 'Glasgow College UESTC (6%)',  year: 2020, sections: ['honours'] },
+  { text: 'Outstanding Student Scholarship (1st Class)', comment: 'UESTC (10%)',                 year: 2020, sections: ['honours'] },
+  { text: 'James Watt Scholarship of Innovation',        comment: 'Glasgow College UESTC (6%)',  year: 2020, sections: ['honours'] },
   // 2021
-  { text: 'Academic (Half-Tuition) Scholarship',         comment: 'Glasgow College UESTC (6%)',  year: 2021, sections: ['honors'] },
-  { text: 'Outstanding Student Scholarship (1st Class)', comment: 'UESTC (10%)',                 year: 2021, sections: ['honors'] },
+  { text: 'Academic (Half-Tuition) Scholarship',         comment: 'Glasgow College UESTC (6%)',  year: 2021, sections: ['honours'] },
+  { text: 'Outstanding Student Scholarship (1st Class)', comment: 'UESTC (10%)',                 year: 2021, sections: ['honours'] },
   // 2022
-  { text: 'Academic (Half-Tuition) Scholarship',         comment: 'Glasgow College UESTC (6%)',  year: 2022, sections: ['honors'] },
-  { text: 'Outstanding Student Scholarship (1st Class)', comment: 'UESTC (10%)',                 year: 2022, sections: ['honors'] },
-  { text: 'Suzhou Industrial Zone Scholarship',          comment: 'UESTC (1%)',                  year: 2022, sections: ['honors'] },
-  { text: 'James Watt Scholarship of Innovation',        comment: 'Glasgow College UESTC (6%)',  year: 2022, sections: ['honors'] },
+  { text: 'Academic (Half-Tuition) Scholarship',         comment: 'Glasgow College UESTC (6%)',  year: 2022, sections: ['honours'] },
+  { text: 'Outstanding Student Scholarship (1st Class)', comment: 'UESTC (10%)',                 year: 2022, sections: ['honours'] },
+  { text: 'Suzhou Industrial Zone Scholarship',          comment: 'UESTC (1%)',                  year: 2022, sections: ['honours'] },
+  { text: 'James Watt Scholarship of Innovation',        comment: 'Glasgow College UESTC (6%)',  year: 2022, sections: ['honours'] },
   // 2023
-  { text: 'Sichuan Provincial Outstanding Graduate (四川省优秀本科毕业生)',                         year: 2023, sections: ['honors'] },
+  { text: 'Sichuan Provincial Outstanding Graduate (四川省优秀本科毕业生)',                         year: 2023, sections: ['honours'] },
   // 2025
-  { text: 'NeurIPS 2025 Top Reviewer',                                                            year: 2025, sections: ['honors'] },
+  { text: 'NeurIPS 2025 Top Reviewer',                                                            year: 2025, sections: ['honours'] },
 
   // ============================== Teaching ==============================
   { text: 'UESTC1005 Introductory Programming',           comment: 'Prof Ahmed Zoha',                            year: 2022, sections: ['teaching'] },
@@ -398,16 +400,16 @@ export const sections = [
   {
     view: 'entry-list',
     config: {
-      id: 'honors',
-      title: 'Honors & Scholarships',
-      filter: (e) => e.sections?.includes('honors'),
+      id: 'honours',
+      title: 'Honours & Scholarships',
+      filter: (e) => e.sections?.includes('honours'),
     },
   },
 
   {
     view: 'footer',
     config: {
-      lastUpdated: '2026-05-08',
+      lastUpdated: '2026-05-09',
     },
   },
 ];

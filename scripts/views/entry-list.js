@@ -1,7 +1,7 @@
-// Dense list view for things like honors, scholarships, teaching, service.
+// Dense list view for things like honours, scholarships, teaching, service.
 // Each item is a row with a bold main text, an optional gray italic comment,
 // and a right-aligned year. The data shape is open: views read the fields
-// they recognize and ignore the rest, so new fields can be added freely
+// they recognise and ignore the rest, so new fields can be added freely
 // (e.g. links, notes) without touching this view, mirroring the publication
 // list contract.
 import { escapeHtml } from './_shared.js';
@@ -16,16 +16,18 @@ export function renderEntryList(container, config, ctx) {
         ${config.lede ? `<p class="section__lede">${escapeHtml(config.lede)}</p>` : ''}
       </header>
       <ol class="entry-list" role="list">
-        ${items.map((it) => `
+        ${items.map((it) => {
+          const head = [
+            it.text    ? `<span class="entry__text">${escapeHtml(it.text)}</span>` : '',
+            it.text && it.comment ? '<span class="entry__sep" aria-hidden="true">,</span> ' : '',
+            it.comment ? `<span class="entry__comment">${escapeHtml(it.comment)}</span>` : '',
+          ].join('');
+          return `
           <li class="entry" data-reveal>
-            <div class="entry__col">
-              ${it.text ? `<span class="entry__text">${escapeHtml(it.text)}</span>` : ''}
-              ${it.text && it.comment ? `<span class="entry__sep" aria-hidden="true">,</span> ` : ''}
-              ${it.comment ? `<span class="entry__comment">${escapeHtml(it.comment)}</span>` : ''}
-            </div>
+            <div class="entry__col">${head}</div>
             ${it.year != null ? `<span class="entry__year">${escapeHtml(String(it.year))}</span>` : ''}
           </li>
-        `).join('')}
+        `;}).join('')}
       </ol>
     </div>
   `;
