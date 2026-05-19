@@ -145,15 +145,16 @@ export const publications = [
       { name: 'Hai Ci',                       coFirst: true },
       { name: 'Mike Zheng Shou'                             },
     ],
-    tldr: 'Facilitates realistic computer-use agent benchmarking and rewarding, already deployed by Tencent Singapore.',
+    tldr: 'Facilitates realistic computer-use agent benchmarking and rewarding, already deployed by Tencent Singapore and [use.computer](https://use.computer/).',
     keywords: ['Computer-Use Agent', 'AWS EC2', 'VMware', 'AppleScript', 'Safety'],
     venue: 'NeurIPS 2025',
     figure: 'assets/fig-02.svg',
     links: [
-      { label: 'Paper',        href: 'https://arxiv.org/abs/2506.04135' },
-      { label: 'Presentation', href: 'https://neurips.cc/virtual/2025/loc/san-diego/poster/117427' },
-      { label: 'Project Page', href: 'https://macos-world.github.io/' },
-      { label: 'Code',         href: 'https://github.com/showlab/macosworld' },
+      { label: 'Paper',                     href: 'https://arxiv.org/abs/2506.04135' },
+      { label: 'Presentation',              href: 'https://neurips.cc/virtual/2025/loc/san-diego/poster/117427' },
+      { label: 'Project Page',              href: 'https://macos-world.github.io/' },
+      { label: 'Code',                      href: 'https://github.com/showlab/macosworld' },
+      { label: 'Deployment (use.computer)', href: 'https://docs.use.computer/docs/examples#macosworld--a-real-benchmark-with-graders' },
     ],
     sections: ['publications'],
   },
@@ -409,7 +410,7 @@ export const sections = [
   {
     view: 'footer',
     config: {
-      lastUpdated: '2026-05-09',
+      lastUpdated: '2026-05-20',
     },
   },
 ];

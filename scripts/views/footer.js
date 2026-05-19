@@ -9,7 +9,7 @@ function externalAttrs(href) {
 export function renderFooter(container, config, ctx) {
   const lastUpdated = config.lastUpdated ?? new Date().toISOString().slice(0, 10);
   const date = new Date(lastUpdated);
-  const dateString = date.toLocaleDateString('en-US', {
+  const dateString = date.toLocaleDateString('en-GB', {
     year: 'numeric', month: 'long', day: 'numeric',
   });
   container.innerHTML = `
