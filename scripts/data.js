@@ -92,7 +92,7 @@ export const publications = [
       { name: 'Yiren Song'                                  },
       { name: 'Mike Zheng Shou'                             },
     ],
-    tldr: 'Yes, it can, and even for diffusion latent domain watermarking methods.',
+    tldr: 'Yes, it can, and even for advanced diffusion latent domain watermarking methods.',
     keywords: ['Watermarking', 'Diffusion'],
     venue: 'NeurIPS 2024',
     links: [
@@ -153,7 +153,8 @@ export const publications = [
       { label: 'Paper',                     href: 'https://arxiv.org/abs/2506.04135' },
       { label: 'Presentation',              href: 'https://neurips.cc/virtual/2025/loc/san-diego/poster/117427' },
       { label: 'Project Page',              href: 'https://macos-world.github.io/' },
-      { label: 'Code',                      href: 'https://github.com/showlab/macosworld' },
+      { label: 'Code (AWS)',                href: 'https://github.com/showlab/macosworld' },
+      { label: 'Code (VMware)',             href: 'https://github.com/yangpei-comp/macosworld_vmware' },
       { label: 'Deployment (use.computer)', href: 'https://docs.use.computer/docs/examples#macosworld--a-real-benchmark-with-graders' },
     ],
     sections: ['publications'],
