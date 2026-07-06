@@ -277,7 +277,7 @@ export const publications = [
     authors: [
       { name: 'Pei Yang',         self: true, coFirst: true },
       { name: 'Hai Ci',                       coFirst: true },
-      { name: 'Yanzhe Chen'                                 },
+      { name: 'Yanzhe Chen',                  coFirst: true },
       { name: 'Qi Lv'                                       },
       { name: 'Han Cai'                                     },
       { name: 'Mike Zheng Shou'                             },
@@ -285,7 +285,10 @@ export const publications = [
     tldr: 'Using probability heatmaps at VLA outputs brings free-lunch data efficiency and performance improvement.',
     keywords: ['Robotic Manipulation', 'VLA', 'Franka'],
     venue: '2026',
-    links: [],
+    links: [
+      { label: 'Paper',        href: 'https://arxiv.org/abs/2606.06904' },
+      { label: 'Project Page', href: 'https://showlab.github.io/ActionMap/' },
+    ],
     sections: ['publications'],
   },
 
@@ -411,7 +414,7 @@ export const sections = [
   {
     view: 'footer',
     config: {
-      lastUpdated: '2026-05-20',
+      lastUpdated: '2026-06-15',
     },
   },
 ];
