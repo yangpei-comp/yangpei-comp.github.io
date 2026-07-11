@@ -25,10 +25,10 @@
 // Everything else (`affiliation`, `email`) is optional and defaults to null -
 // when null/undefined, the hero simply doesn't render that line.
 //
-// Naming convention: the hero / topbar / footer use `Yang Pei` (set here as
+// Naming convention: the hero / topbar / footer use `Pei Yang` (set here as
 // `profile.name`). Every author list in publications below uses `Pei Yang`.
 export const profile = {
-  name: 'Yang Pei',
+  name: 'Pei Yang',
   // Inline links use markdown-style [label](url); they're parsed in hero.js.
   intro: `I'm a third-year PhD student at [Show Lab](https://sites.google.com/view/showlab), National University of Singapore, advised by [Prof. Mike Shou](https://scholar.google.com/citations?user=h1-3lSoAAAAJ). Before NUS, I did my undergraduate studies at [Glasgow College, UESTC](https://www.gla.uestc.edu.cn/english/Home.htm), majoring in Electrical and Electronic Engineering. I've been working on GenAI safety and watermarking, GUI agents, and video post-training, and more recently on embodied AI.`,
   photo: 'assets/portrait.jpg',
