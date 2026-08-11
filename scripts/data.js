@@ -249,7 +249,9 @@ export const publications = [
     ],
     keywords: ['Video Post-Training', 'Robotics'],
     venue: '2026',
-    links: [],
+    links: [
+      { label: 'Paper', href: 'https://arxiv.org/abs/2605.12038' },
+    ],
     sections: ['publications'],
   },
   {
@@ -288,6 +290,7 @@ export const publications = [
     links: [
       { label: 'Paper',        href: 'https://arxiv.org/abs/2606.06904' },
       { label: 'Project Page', href: 'https://showlab.github.io/ActionMap/' },
+      { label: 'Code',         href: 'https://github.com/showlab/ActionMap' },
     ],
     sections: ['publications'],
   },
@@ -414,7 +417,7 @@ export const sections = [
   {
     view: 'footer',
     config: {
-      lastUpdated: '2026-06-15',
+      lastUpdated: '2026-08-11',
     },
   },
 ];
